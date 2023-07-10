@@ -24,7 +24,14 @@ def comennds_num(comends):
 
 #~~~~~~~~~~~~~~~~~~test~~~~~~~~~~~~~~~~~~~~~~
 if __name__ == '__main__':
-    if comennds_num(["cp", "ls", "mv", "!2", "!1", "ls", "!3", "!6"]) == [1, 2, 1]:
+    if comennds_num(["cp", "ls", "mv", "!2", "!1", "ls", "!3", "!6"]) == [2, 4, 2]:
         print("pass 1 test")
     else:
+        print(comennds_num(["cp", "ls", "mv", "!2", "!1", "ls", "!3", "!6"]))
         print("fail 1 test")
+    if comennds_num(["ls", "cp", "mv", "mv", "mv", "mv", "!1", "!3", "!6"]) == [1, 2, 6]:
+        print("pass 2 test")
+    else:
+        print(comennds_num(["ls", "cp", "mv", "mv", "mv", "mv","!1", "!3", "!6"]))
+
+        print("fail 2 test")
