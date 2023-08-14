@@ -1,19 +1,19 @@
-from node import Node
+from listnode import ListNode
 
 class LinkedList:
     length = 0
-    def __init__(self):
-        self.head = None
+    def __init__(self, head = None):
+        self.head = head
 
 
 
     def add_first_by_value(self,value):
         self.length += 1
-        node = Node(value)
+        node = ListNode(value)
         node.next = self.head
         self.head = node
 
-    def append_recursive(self, value):
+    def append_recursive(self, val):
         pass
 
 
@@ -21,26 +21,26 @@ class LinkedList:
         self.length += 1
         current_node = self.head
         if not current_node:
-            self.head = Node(value)
+            self.head = ListNode(value)
         else:
             while current_node.next:
                 current_node = current_node.next
-            current_node.next = Node(value)
+            current_node.next = ListNode(value)
         return self
 
     def append_sorted(self, value):
         self.length += 1
         if not self.head:
-            self.head = Node(value)
+            self.head = ListNode(value)
         else:
             current_node = self.head
-            if current_node.value > value:
-                self.head = Node(value)
+            if current_node.val > value:
+                self.head = ListNode(value)
                 self.head.next = current_node
             else:
-                while current_node.next and current_node.next.value < value:
+                while current_node.next and current_node.next.val < value:
                     current_node = current_node.next
-                new_node = Node(value)
+                new_node = ListNode(value)
                 new_node.next = current_node.next
                 current_node.next = new_node
 
@@ -61,10 +61,10 @@ class LinkedList:
         self.length -= 1
         if self.head:
             current_node = self.head
-            if current_node.value == value:
+            if current_node.val == value:
                 self.head = current_node.next
             else:
-                while current_node.next and current_node.next.value != value:
+                while current_node.next and current_node.next.val != value:
                     current_node = current_node.next
                 if current_node.next:
                     current_node.next = current_node.next.next
@@ -78,7 +78,7 @@ class LinkedList:
     def is_exist(self, value):
         current_node = self.head
         while current_node:
-            if current_node.value == value:
+            if current_node.val == value:
                 return True
             current_node = current_node.next
         return False
@@ -86,11 +86,17 @@ class LinkedList:
     def print_linked_list(self):
         iter_node = self.head
         while iter_node:
-            print(f'the value is: {iter_node.value}')
+            print(f'the value is: {iter_node.val}')
             iter_node = iter_node.next
     @property
     def __len__(self):
         return self.length
+
+    @__len__.setter
+    def __len__(self, value):
+        self.length = value
+
+
 
 
 

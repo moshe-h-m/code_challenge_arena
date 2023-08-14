@@ -1,3 +1,4 @@
+import csv
 
 from RemoveDuplicates import remove_duplicates
 from BuyAndSell import best_deal
@@ -11,6 +12,10 @@ from Buzz import fizz_buzz
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     pased = 0
+    csvRead = csv.reader(open("test.csv", "r"))
+
+
+
     #~~~~~~~~~~~~~~~this is the test for the RemoveDuplicates.py~~~~~~~~~~~~~~~#
     # nums = [1, 1, 2]
     # k = remove_duplicates(nums)
